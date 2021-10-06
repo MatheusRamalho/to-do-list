@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+
+// Components...
+import { ListItem } from './components/Item';
+import { AddItem } from './components/AddItem';
+
+// Styles...
+import GlobalStyle from './styles/global';
+import { Container, Wrapper, Header } from './App';
+
+// Types...
+import { ItemType } from './Types/Item';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [list, setList] = useState<ItemType[]>([
+		{ id: 1, name: 'Aprendendo ReactJS', done: false }
+	]);
+
+	// Funciton handleAddTask
+	// Recebe uma string 
+	// A adiciona um novo item na lista...
+	const handleAddTask = (taskName: string) => {
+		let newList = [...list]; // clonando a lista...
+
+		newList.push({ // Adiciona item...
+			id: list.length + 1, // Pega o tamanho da lista e soma mais um...
+			name: taskName, // Recebe o valor do parametro...
+			done: false, // Todo item novo inicia como falso...
+		});
+
+		setList(newList); // Adiciona a lista original...
+	}
+
+	return (
+		<Container>
+			<GlobalStyle />
+			
+			<Wrapper>
+				<Header> To-do List </Header>
+				
+				{/* Adiciona um novo item... */}
+				{/* Passando a funcao como prop para o component... */}
+				<AddItem onEnter={handleAddTask} />
+
+				{/* Lista todos os itens adicionados... */}
+				{list.map((item, index) => (
+					<ListItem key={index} item={item}/>
+				))}
+			</Wrapper>
+		</Container>
+	);
 }
 
 export default App;
