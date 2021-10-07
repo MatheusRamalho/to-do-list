@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 // Components...
-import { ListItem } from './components/Item';
+import { List, ListItem } from './components/Item';
 import { AddItem } from './components/AddItem';
 
 // Styles...
 import GlobalStyle from './styles/global';
-import { Container, Wrapper, Header } from './App';
+import { Container, Wrapper, Header } from './App.styles';
 
 // Types...
 import { ItemType } from './Types/Item';
@@ -17,7 +17,7 @@ function App() {
 		{ id: 1, name: 'Aprendendo ReactJS', done: false }
 	]);
 
-	// Funciton handleAddTask
+	// Function handleAddTask
 	// Recebe uma string 
 	// A adiciona um novo item na lista...
 	const handleAddTask = (taskName: string) => {
@@ -44,9 +44,11 @@ function App() {
 				<AddItem onEnter={handleAddTask} />
 
 				{/* Lista todos os itens adicionados... */}
-				{list.map((item, index) => (
-					<ListItem key={index} item={item}/>
-				))}
+				<List>
+					{list.map((item, index) => (
+						<ListItem key={index} item={item}/>
+					))}
+				</List>
 			</Wrapper>
 		</Container>
 	);

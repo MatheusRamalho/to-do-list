@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 // Styles...
 import { ListContainer, ItemContainer } from './style';
@@ -6,9 +6,14 @@ import { ListContainer, ItemContainer } from './style';
 // Types...
 import { ItemType} from '../../Types/Item';
 
-export function List() {
+type ListProps = {
+    children: ReactNode;
+}
+export function List(props: ListProps) {
     return (
-        <ListContainer></ListContainer>
+        <ListContainer>
+            {props.children}
+        </ListContainer>
     );
 }
 

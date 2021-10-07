@@ -25,7 +25,7 @@ export function AddItem( {onEnter}: AddItemProps ) {
 
             <input
                 type="text"
-                placeholder="Nova tarefa"
+                placeholder="Informe o novo item da lista"
                 value={inputText}
                 onChange={e => setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}
