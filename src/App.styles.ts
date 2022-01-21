@@ -1,25 +1,25 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Wrapper = styled.main`
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    background-color: var(--black2);
+    background-color: var(--blackRegular);
+
     color: var(--white);
-`;
 
-export const Wrapper = styled.div`
-    max-width: 980px;
-    height: auto;
-    margin: auto;
-    padding: 10px;
-`;
+    section {
+        max-width: 61.25rem;
+        height: auto;
+        margin: auto;
+        padding: 0.625rem;
 
-export const Header = styled.h1`
-    margin: 0;
-    padding: 0;
-    padding-bottom: 1rem;
+        h1 {
+            margin: 0;
+            padding: 0 0 1rem 0;
 
-    text-align: center;
-    color: var(--color);
+            text-align: center;
+            color: var(--colorRegular);
+        }
+    }
 `;

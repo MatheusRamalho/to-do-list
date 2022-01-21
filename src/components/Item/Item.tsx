@@ -1,15 +1,12 @@
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 
-// Styles...
-import { ListContainer, ItemContainer } from './style';
+// STYLES...
+import { ListContainer, ItemContainer } from './ItemStyled';
 
-// Types...
-import { ItemType} from '../../Types/Item';
+// TYPES...
+import { ListItemType, ListType} from './ItemType';
 
-type ListProps = {
-    children: ReactNode;
-}
-export function List(props: ListProps) {
+export function List(props: ListType) {
     return (
         <ListContainer>
             {props.children}
@@ -17,16 +14,12 @@ export function List(props: ListProps) {
     );
 }
 
-type ItemProps = {
-    item: ItemType;
-}
-
-export function ListItem({ item }: ItemProps) {
+export function ListItem({ item }: ListItemType) {
     const [isChecked, setIsChecked] = useState(item.done);
-    
+
     return (
         <ItemContainer done={isChecked}>
-            <input 
+            <input
                 type="checkbox"
                 checked={isChecked}
                 onChange={e => setIsChecked(e.target.checked)}

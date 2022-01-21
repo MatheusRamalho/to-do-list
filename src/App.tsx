@@ -1,25 +1,22 @@
 import { useState } from 'react';
 
-// Components...
-import { List, ListItem } from './components/Item';
-import { AddItem } from './components/AddItem';
+// COMPONENTS...
+import { AddItem } from './components/AddItem/AddItem';
+import { List, ListItem } from './components/Item/Item';
 
-// Styles...
+// STYLES...
 import GlobalStyle from './styles/global';
-import { Container, Wrapper, Header } from './App.styles';
+import { Wrapper } from './App.styles';
 
-// Types...
-import { ItemType } from './Types/Item';
-
+// TYPES...
+import { ItemType } from './components/Item/ItemType';
 
 function App() {
 	const [list, setList] = useState<ItemType[]>([
 		{ id: 1, name: 'Aprendendo ReactJS', done: false }
 	]);
 
-	// Function handleAddTask
-	// Recebe uma string 
-	// A adiciona um novo item na lista...
+	// Recebe uma string e adiciona um novo item na lista...
 	const handleAddTask = (taskName: string) => {
 		let newList = [...list]; // clonando a lista...
 
@@ -33,24 +30,28 @@ function App() {
 	}
 
 	return (
-		<Container>
+		<Wrapper>
 			<GlobalStyle />
-			
-			<Wrapper>
-				<Header> To-do List </Header>
-				
-				{/* Adiciona um novo item... */}
-				{/* Passando a funcao como prop para o component... */}
-				<AddItem onEnter={handleAddTask} />
 
-				{/* Lista todos os itens adicionados... */}
+			<section>
+				<h6 hidden> Section </h6>
+
+				<h1> To-do List </h1>
+
+				<AddItem
+					onEnter={handleAddTask}
+				/>
+
 				<List>
 					{list.map((item, index) => (
-						<ListItem key={index} item={item}/>
+						<ListItem
+							key={index}
+							item={item}
+						/>
 					))}
 				</List>
-			</Wrapper>
-		</Container>
+			</section>
+		</Wrapper>
 	);
 }
 

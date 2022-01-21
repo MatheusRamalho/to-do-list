@@ -1,19 +1,16 @@
 import { useState, KeyboardEvent } from 'react';
 
-// Styles...
-import { Container } from './style';
+// STYLES...
+import { Container } from './AddItemStyled';
 
-// Types...
-type AddItemProps = {
-    onEnter: (taskName: string) => void; // Funcao do tipo void que recebe uma string...
-}
+// TYPES...
+import { AddItemType } from './AddItemType';
 
-export function AddItem( {onEnter}: AddItemProps ) {
+export function AddItem({ onEnter }: AddItemType) {
     const [ inputText, setInputText ] = useState('');
 
-    // Function handleKeyUp
     const handleKeyUp = (event: KeyboardEvent) => { // Recebe um evento de teclado...
-        if (event.code === 'Enter' && inputText !== '') { // Verifica se a tecla solta foi o enter... e se o input nao esta vazio...
+        if (event.code === 'Enter' && inputText !== '') { // Verifica se a tecla solta foi o enter e se o input nao esta vazio...
             onEnter(inputText); // Chama a prop passando o valor digitado no input...
             setInputText(''); // Limpa o input...
         }
@@ -21,7 +18,7 @@ export function AddItem( {onEnter}: AddItemProps ) {
 
     return (
         <Container>
-            <div className="image__"> + </div>
+            <div> + </div>
 
             <input
                 type="text"
