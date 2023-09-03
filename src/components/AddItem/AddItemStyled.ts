@@ -1,23 +1,24 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
     width: 100%;
-    height: 4rem;
+    height: 5rem;
     margin: 2rem 0;
-    padding: 1rem 1rem 1rem 0;
-    border: 0.125rem solid var(--blackDark);
+    padding-right: 1rem;
+    border: 0.125rem solid var(--gray-700);
     border-radius: 0.75rem;
 
     display: flex;
     align-items: center;
 
     div {
-        width: 4rem;
+        width: 3rem;
         height: inherit;
         margin-right: 1rem;
         border-top-left-radius: inherit;
         border-bottom-left-radius: inherit;
-        background-color: var(--colorRegular);
+        background-color: var(--primary-500);
+        color: var(--gray-800);
 
         display: flex;
         align-items: center;
@@ -28,11 +29,11 @@ export const Container = styled.div`
     }
 
     input {
-        height: 3rem;
+        height: 3.8rem;
         padding-left: 0.8rem;
-        background-color: var(--blackDark);
+        border: 0.063rem solid var(--gray-500);
+        background-color: var(--gray-900);
         border-radius: 0.75rem;
-        border: 0;
         outline: none;
 
         font-size: 1rem;
@@ -40,4 +41,4 @@ export const Container = styled.div`
 
         flex: 1;
     }
-`;
+`

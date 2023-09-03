@@ -1,3 +1,3 @@
 export type AddItemType = {
-    onEnter: (taskName: string) => void; // Funcao do tipo void que recebe uma string...
+    onEnter: (taskName: string) => void
 }

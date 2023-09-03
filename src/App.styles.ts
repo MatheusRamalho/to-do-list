@@ -1,10 +1,10 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const Wrapper = styled.main`
     width: 100%;
     min-height: 100vh;
     padding: 2rem;
-    background-color: var(--blackRegular);
+    background-color: var(--gray-800);
 
     color: var(--white);
 
@@ -19,7 +19,7 @@ export const Wrapper = styled.main`
             padding: 0 0 1rem 0;
 
             text-align: center;
-            color: var(--colorRegular);
+            color: var(--primary-500);
         }
     }
-`;
+`

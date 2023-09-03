@@ -1,19 +1,19 @@
-import { ReactNode } from "react"
+import { ReactNode } from 'react'
 
 export type ItemType = {
-    id: number;
-    name: string;
-    done: boolean;
-};
+    id: number
+    name: string
+    done: boolean
+}
 
 export type ListType = {
-    children: ReactNode;
-};
+    children: ReactNode
+}
 
 export type ListItemType = {
-    item: ItemType;
-};
+    item: ItemType
+}
 
 export type ItemContainerProps = {
-    done: boolean;
+    done: boolean
 }

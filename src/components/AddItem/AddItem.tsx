@@ -1,18 +1,17 @@
-import { useState, KeyboardEvent } from 'react';
+import { useState, KeyboardEvent } from 'react'
 
-// STYLES...
-import { Container } from './AddItemStyled';
+import { Container } from './AddItemStyled'
+import { AddItemType } from './AddItemType'
 
-// TYPES...
-import { AddItemType } from './AddItemType';
+export const AddItem = ({ onEnter }: AddItemType) => {
+    const [inputText, setInputText] = useState('')
 
-export function AddItem({ onEnter }: AddItemType) {
-    const [ inputText, setInputText ] = useState('');
-
-    const handleKeyUp = (event: KeyboardEvent) => { // Recebe um evento de teclado...
-        if (event.code === 'Enter' && inputText !== '') { // Verifica se a tecla solta foi o enter e se o input nao esta vazio...
-            onEnter(inputText); // Chama a prop passando o valor digitado no input...
-            setInputText(''); // Limpa o input...
+    const handleKeyUp = (event: KeyboardEvent) => {
+        // Recebe um evento de teclado...
+        if (event.code === 'Enter' && inputText !== '') {
+            // Verifica se a tecla solta foi o enter e se o input nao esta vazio...
+            onEnter(inputText) // Chama a prop passando o valor digitado no input...
+            setInputText('')
         }
     }
 
@@ -24,9 +23,9 @@ export function AddItem({ onEnter }: AddItemType) {
                 type="text"
                 placeholder="Informe o novo item da lista"
                 value={inputText}
-                onChange={e => setInputText(e.target.value)}
+                onChange={(e) => setInputText(e.target.value)}
                 onKeyUp={handleKeyUp}
             />
         </Container>
-    );
+    )
 }

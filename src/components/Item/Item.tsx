@@ -1,31 +1,20 @@
-import { useState } from 'react';
+import { useState } from 'react'
 
-// STYLES...
-import { ListContainer, ItemContainer } from './ItemStyled';
+import { ListContainer, ItemContainer } from './ItemStyled'
+import { ListItemType, ListType } from './ItemType'
 
-// TYPES...
-import { ListItemType, ListType} from './ItemType';
-
-export function List(props: ListType) {
-    return (
-        <ListContainer>
-            {props.children}
-        </ListContainer>
-    );
+export const List = (props: ListType) => {
+    return <ListContainer>{props.children}</ListContainer>
 }
 
-export function ListItem({ item }: ListItemType) {
-    const [isChecked, setIsChecked] = useState(item.done);
+export const ListItem = ({ item }: ListItemType) => {
+    const [isChecked, setIsChecked] = useState<boolean>(item.done)
 
     return (
         <ItemContainer done={isChecked}>
-            <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={e => setIsChecked(e.target.checked)}
-            />
+            <input type="checkbox" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)} />
 
             <label> {item.name} </label>
         </ItemContainer>
-    );
+    )
 }
