@@ -1,8 +1,12 @@
-import Link from "next/link"
+import Link from 'next/link'
 
 export const GithubButton = () => {
     return (
-        <Link className="size-8 rounded-md bg-gray-700 flex items-center justify-center group hover:bg-gray-600" href="https://github.com/MatheusRamalho" target="_blank">
+        <Link
+            className="size-8 rounded-md bg-gray-700 flex items-center justify-center group hover:bg-gray-600"
+            href="https://github.com/MatheusRamalho"
+            target="_blank"
+        >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width={24}

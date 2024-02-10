@@ -8,7 +8,8 @@ export const NewTask = ({ onEnter }: NewTaskProps) => {
     const [inputText, setInputText] = useState('')
 
     const handleKeyUp = (event: KeyboardEvent) => {
-        if (event.code === 'Enter' && inputText !== '') { // Verifica se a tecla solta foi o enter e se o input nao esta vazio...
+        if (event.code === 'Enter' && inputText !== '') {
+            // Verifica se a tecla solta foi o enter e se o input nao esta vazio...
             onEnter(inputText)
             setInputText('')
         }
